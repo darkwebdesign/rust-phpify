@@ -15,8 +15,36 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-//! A library that ports PHP functions and structures to Rust. It may not serve any real purpose
-//! other than making the transition from PHP to Rust easier.
+/// Prepend one element to the beginning of an vector
+///
+/// # Description
+///
+/// array_unshift() prepends passed element to the front of the vector.
+///
+/// # Examples
+///
+/// Example #1 array_shift() example
+///
+/// ```
+/// use phpify::array::array_unshift;
+///
+/// let mut queue = vec!["orange", "banana"];
+/// array_unshift(&mut queue, "apple");
+///
+/// assert_eq!(queue, vec!["apple", "orange", "banana"]);
+/// ```
+pub fn array_unshift<T>(array: &mut Vec<T>, value: T) {
+    array.insert(0, value);
+}
 
-pub mod array;
-pub mod string;
+#[cfg(test)]
+mod tests {
+    use crate::array::array_unshift;
+
+    #[test]
+    fn test() {
+        let mut vec = vec!["b", "c"];
+        array_unshift(&mut vec, "a");
+        assert_eq!(vec, vec!["a", "b", "c"]);
+    }
+}

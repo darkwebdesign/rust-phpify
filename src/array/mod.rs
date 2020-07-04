@@ -15,8 +15,20 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-//! A library that ports PHP functions and structures to Rust. It may not serve any real purpose
-//! other than making the transition from PHP to Rust easier.
+mod array_pop;
+mod array_push;
+mod array_rand;
+mod array_search;
+mod array_shift;
+mod array_unique;
+mod array_unshift;
+mod array_walk;
 
-pub mod array;
-pub mod string;
+pub use array_pop::array_pop;
+pub use array_push::array_push;
+pub use array_rand::array_rand;
+pub use array_search::array_search;
+pub use array_shift::array_shift;
+pub use array_unique::array_unique;
+pub use array_unshift::array_unshift;
+pub use array_walk::array_walk;

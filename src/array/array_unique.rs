@@ -15,8 +15,43 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-//! A library that ports PHP functions and structures to Rust. It may not serve any real purpose
-//! other than making the transition from PHP to Rust easier.
+/// Removes duplicate values from a vector
+///
+/// # Description
+///
+/// Takes an input vector and returns a new vector without duplicate values.
+///
+/// # Examples
+///
+/// Example #1 array_unique() example
+///
+/// ```
+/// use phpify::array::array_unique;
+///
+/// let input = vec!["green", "red", "green", "blue", "red"];
+/// assert_eq!(array_unique(&input), [&"green", &"red", &"blue"]);
+/// ```
+pub fn array_unique<T>(array: &Vec<T>) -> Vec<&T>
+    where
+        T: PartialEq {
 
-pub mod array;
-pub mod string;
+    let mut new_array = Vec::new();
+
+    for value in array {
+        if !new_array.contains(&value) {
+            new_array.push(value);
+        }
+    }
+
+    new_array
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::array::array_unique;
+
+    #[test]
+    fn test() {
+        assert_eq!(array_unique(&vec!["a", "b", "a", "c", "b"]), [&"a", &"b", &"c"]);
+    }
+}

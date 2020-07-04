@@ -15,8 +15,39 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-//! A library that ports PHP functions and structures to Rust. It may not serve any real purpose
-//! other than making the transition from PHP to Rust easier.
+/// Pop the element off the end of vector
+///
+/// # Description
+///
+/// array_pop() pops and returns the value of the last element of vector, shortening the vector by
+/// one element.
+///
+/// # Examples
+///
+/// Example #1 array_pop() example
+///
+/// ```
+/// use phpify::array::array_pop;
+///
+/// let mut stack = vec!["orange", "banana", "apple", "raspberry"];
+/// let fruit = array_pop(&mut stack).unwrap();
+///
+/// assert_eq!(stack, vec!["orange", "banana", "apple"]);
+/// assert_eq!(fruit, "raspberry");
+/// ```
+pub fn array_pop<T>(array: &mut Vec<T>) -> Option<T> {
+    array.pop()
+}
 
-pub mod array;
-pub mod string;
+#[cfg(test)]
+mod tests {
+    use crate::array::array_pop;
+
+    #[test]
+    fn test() {
+        let mut vec = vec!["a", "b", "c"];
+        assert_eq!(array_pop(&mut vec), Some("c"));
+        assert_eq!(vec, vec!["a", "b"]);
+        assert_eq!(array_pop::<usize>(&mut Vec::new()), None);
+    }
+}

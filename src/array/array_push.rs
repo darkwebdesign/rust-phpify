@@ -15,8 +15,37 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-//! A library that ports PHP functions and structures to Rust. It may not serve any real purpose
-//! other than making the transition from PHP to Rust easier.
+/// Push one or more elements onto the end of vector
+///
+/// # Description
+///
+/// array_push() treats vector as a stack, and pushes the passed variable onto the end of vector.
+/// The length of vector increases by one.
+///
+/// # Examples
+///
+/// Example #1 array_push() example
+///
+/// ```
+/// use phpify::array::array_push;
+///
+/// let mut stack = vec!["orange", "banana"];
+/// array_push(&mut stack, "apple");
+///
+/// assert_eq!(stack, vec!["orange", "banana", "apple"]);
+/// ```
+pub fn array_push<T>(array: &mut Vec<T>, value: T) {
+    array.push(value)
+}
 
-pub mod array;
-pub mod string;
+#[cfg(test)]
+mod tests {
+    use crate::array::array_push;
+
+    #[test]
+    fn test() {
+        let mut vec = vec!["a", "b"];
+        array_push(&mut vec, "c");
+        assert_eq!(vec, vec!["a", "b", "c"]);
+    }
+}

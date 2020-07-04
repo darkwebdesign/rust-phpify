@@ -1,6 +1,6 @@
 [package]
 name = "phpify"
-version = "0.1.0-beta3"
+version = "0.1.0-beta4"
 authors = ["Raymond Schouten"]
 edition = "2018"
 
@@ -12,3 +12,4 @@ keywords = ["php"]
 categories = ["development-tools"]
 
 [dependencies]
+rand = "0.7.3"
