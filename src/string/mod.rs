@@ -15,7 +15,20 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-//! A library that ports PHP functions and structures to Rust. It may not serve any real purpose
-//! other than making the transition from PHP to Rust easier.
+mod explode;
+mod implode;
+mod lcfirst;
+mod stripos;
+mod strlen;
+mod strpos;
+mod substr;
+mod ucfirst;
 
-pub mod string;
+pub use explode::explode;
+pub use implode::implode;
+pub use lcfirst::lcfirst;
+pub use stripos::stripos;
+pub use strlen::strlen;
+pub use strpos::strpos;
+pub use substr::substr;
+pub use ucfirst::ucfirst;
