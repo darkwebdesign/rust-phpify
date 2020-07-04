@@ -302,7 +302,7 @@ pub fn stripos<H, N>(haystack: H, needle: N, offset: isize) -> Option<usize>
 /// If start is negative, the returned string will start at the start'th character from the end of
 /// string.
 ///
-/// If string is less than start characters long, None will be returned.
+/// If string is less than start characters long, *None* will be returned.
 ///
 /// **length**
 ///
@@ -311,7 +311,7 @@ pub fn stripos<H, N>(haystack: H, needle: N, offset: isize) -> Option<usize>
 ///
 /// If length is given and is negative, then that many characters will be omitted from the end of
 /// string (after the start position has been calculated when a start is negative). If start denotes
-/// the position of this truncation or beyond, FALSE will be returned.
+/// the position of this truncation or beyond, *NONE* will be returned.
 ///
 /// If length is given and is 0, an empty string will be returned.
 ///
