@@ -1,6 +1,6 @@
 [package]
 name = "phpify"
-version = "0.1.0-beta1"
+version = "0.1.0-beta2"
 authors = ["Raymond Schouten"]
 edition = "2018"
 
