@@ -1,0 +1,13 @@
+[package]
+name = "phpify"
+version = "0.1.0-beta1"
+authors = ["Raymond Schouten"]
+edition = "2018"
+
+repository = "https://github.com/darkwebdesign/rust-phpify"
+readme = "README.md"
+license = "MIT"
+keywords = ["php"]
+categories = ["development-tools"]
+
+[dependencies]
