@@ -4,6 +4,7 @@ version = "0.1.0-beta1"
 authors = ["Raymond Schouten"]
 edition = "2018"
 
+description = "A library that ports PHP functions and structures to Rust"
 repository = "https://github.com/darkwebdesign/rust-phpify"
 readme = "README.md"
 license = "MIT"
